@@ -8,8 +8,34 @@
 </head>
 <body>
     <h1>Gulp rocks!</h1>
-    <p>This one is a fifty-fifth serve test.</p>
+    <p>This one is a fifty-seventh serve test.</p>
     <p><img src="img/shlurp.png"/></p>
+
+
+	<div id="container">Loading...</div>
+
+	<div id="viaf-links-container">Loading...</div>
+
+		<script id="viaf-links-template" type="mustache/x-tmpl-mustache">
+		<table>
+        <tr>
+			<td>{{ key }}</td>
+			<td> 
+                    {{ #value.length }}
+                    <div class="ui list">
+                    {{ #value }}
+                        <div class="item">
+                            <div class="content">
+                               {{ . }}
+                            </div>
+                        </div>
+                    {{ /value }}
+                    </div>
+                    {{ /value.length }}    
+			</td>
+        </tr>
+		</table>
+    </script>
 
 <!-- Scripts -->
 <script src="bundle.js"></script>
