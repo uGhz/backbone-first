@@ -66,23 +66,6 @@ $('img').fadeIn(); // makes images disappear
 			}
 		});
 	
-    var AppView = Backbone.View.extend({
-      el: $('#container'),
-      // template which has the placeholder 'who' to be substitute later
-      template: _.template("<h2>Hello <%= who %></h2>"),
-      initialize: function(){
-        this.render();
-      },
-      render: function(){
-        // render the function using substituting the varible 'who' for 'world!'.
-        this.$el.html(this.template({who: 'world!'}));
-        //***Try putting your name instead of world.
-      }
-    });
-
-
-var appView = new AppView();
-
 var links = new ViafLinksCollection();
 links.fetch({
 	   dataType: 'json',
