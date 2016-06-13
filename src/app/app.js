@@ -7,9 +7,6 @@ var Backbone = require('backbone');
 var Mustache = require('mustache');
 
 
-$('img').fadeIn(); // makes images disappear
-
-
 	var ViafLinksCollection = Backbone.Collection.extend({
 		urlRoot: 'http://viaf.org/viaf',
 		url: function() {
@@ -56,13 +53,19 @@ $('img').fadeIn(); // makes images disappear
 				console.log("ViafLinksView RENDER");
 				
 				// var renderData = {"viaf-links" : JSON.parse(JSON.stringify(this.collection)};
-				var renderData = {"viaf-links" : JSON.parse(JSON.stringify(this.collection))};
+				var renderData = {
+                        title: 'VIAF',
+                        subtitle: 'Autorités en tous genres',
+                        iconName: 'student',
+						links: JSON.parse(JSON.stringify(this.collection))
+				};
 				console.log(renderData);
-				var renderMarkup = Mustache.to_html(this.template, renderData);
+				var renderMarkup = Mustache.render(this.template, renderData);
 				console.log("Ready to update DOM.");
 				
 				this.$el.html(renderMarkup);
-				
+				console.log("DOM updated.");
+				return this;
 			}
 		});
 	
