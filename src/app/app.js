@@ -15,7 +15,8 @@ $('img').fadeIn(); // makes images disappear
 		url: function() {
 			// return this.urlRoot + '/' + this.id + '/justlinks.json';
 			// return this.urlRoot + '/96994048/justlinks.json';
-			return 'http://127.0.0.1:80/biography-enrichment/proxy.php?source=viaf-links&viaf-id=96994048';
+			// return 'http://127.0.0.1:80/biography-enrichment/proxy.php?source=viaf-links&viaf-id=96994048';
+			return 'http://172.22.100.140/biography-enrichment/proxy.php?source=viaf-links&viaf-id=96994048';
 		},
 		parse: function(data) {
 			var result = [];
@@ -31,24 +32,37 @@ $('img').fadeIn(); // makes images disappear
 	});
 
 	var ViafLinksView =  Backbone.View.extend({
-			el: $('#viaf-links-container'),
 		
 			initialize: function() {
-				// this.template = _.template($('#viaf-links-template').html());
-				this.template = Mustache.parse($('#viaf-links-template').html());
-				this.listenTo(this.model, 'change', this.render);
+				console.log("ViafLinksView INITIALIZE");
+				this.el = '#viaf-links-container';
+				var rawTemplate = $('#viaf-links-template').html();
+				console.log(rawTemplate);
+				// this.template = Mustache.parse(rawTemplate);
+				this.template = rawTemplate;
+				this.collection.on('add', this.render, this);
+				
+				// this.listenTo(this.model, 'change', this.render);
 			},
-
-//			render: function(){
-//				// this.$el.html(this.template(this.model.attributes));
-//				this.el.html(Mustache.render(this.template, this.model.attributes));
-//				
-//			}
 			
 			render: function(){
+				console.log("ViafLinksView RENDER");
+				// console.log(this.collection);
+				// console.log(JSON.stringify(this.collection));
+				
+				/*
 				this.collection.each(function(person){
 			            console.log(person);
 				});
+				*/
+				console.log(_.isArray(this.template));
+				console.log(_.isArray({"viaf-links" : this.collection}));
+				
+				var renderData = JSON.stringify(this.collection);
+				console.log(renderData);
+				
+				this.$el.html(Mustache.to_html(this.template, renderData));
+				
 			}
 		});
 	
@@ -77,7 +91,6 @@ links.fetch({
 	   } 
 	 });
 
-var linksView = new ViafLinksView();
-linksView.collection = links;
-linksView.render();
+var linksView = new ViafLinksView({"collection" : links});
+
 console.log("Application has started...");
