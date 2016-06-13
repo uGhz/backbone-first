@@ -16,8 +16,10 @@
 
 	<div id="viaf-links-container">Loading...</div>
 
-		<script id="viaf-links-template" type="mustache/x-tmpl-mustache">
+	<script id="viaf-links-template" type="mustache/x-tmpl-mustache">
+		{{ #viaf-links.length }}
 		<table>
+		{{ #viaf-links }}
         <tr>
 			<td>{{ key }}</td>
 			<td> 
@@ -34,7 +36,9 @@
                     {{ /value.length }}    
 			</td>
         </tr>
+		{{ /viaf-links }}
 		</table>
+		{{ /viaf-links.length }}
     </script>
 
 <!-- Scripts -->
