@@ -8,12 +8,13 @@ var Mustache = require('mustache');
 
 
 	var ViafLinksCollection = Backbone.Collection.extend({
-		urlRoot: 'http://viaf.org/viaf',
+		urlRoot: 'http://127.0.0.1:80/biography-enrichment/proxy.php?source=viaf-links&viaf-id=',
+		// urlRoot: 'http://172.22.100.140/biography-enrichment/proxy.php?source=viaf-links&viaf-id=',
+		initialize: function () {
+			this.viafId = '96994048';
+		},
 		url: function() {
-			// return this.urlRoot + '/' + this.id + '/justlinks.json';
-			// return this.urlRoot + '/96994048/justlinks.json';			
-			return 'http://127.0.0.1:80/biography-enrichment/proxy.php?source=viaf-links&viaf-id=96994048';
-			// return 'http://172.22.100.140/biography-enrichment/proxy.php?source=viaf-links&viaf-id=96994048';
+			return this.urlRoot + this.viafId;
 		},
 		parse: function(data) {
 			var result = [];
@@ -23,25 +24,29 @@ var Mustache = require('mustache');
 		    return result;
 		 }
 	});
-
-	var ViafLinkModel = Backbone.Model.extend({
+	
+	var ViafFormView =  Backbone.View.extend({
+		events: {
+			'click button.submit': 'viafIdSubmitted'
+		},
 		
+		viafIdSubmitted: function (e) {
+			console.log("viafIdSubmitted.");
+			var viafId = this.$("#viaf-id").val();
+			console.log(this.$("#viaf-id").val());
+			this.collection.viafId = viafId;
+			this.collection.fetch();
+			e.preventDefault();
+		}
 	});
 
 	var ViafLinksView =  Backbone.View.extend({
 		
 			initialize: function() {
 				console.log("ViafLinksView INITIALIZE");
-				this.setElement('#viaf-links-container');
-				var rawTemplate = $('#viaf-links-template').html();
-				// console.log(rawTemplate);
-				// this.template = Mustache.parse(rawTemplate);
-				this.template = rawTemplate;
-				// this.collection.on('add', this.render, this);
-				
+
+				this.template = $('#viaf-links-template').html();
 				this.collection.on('sync', this.updateView, this);
-				
-				// this.listenTo(this.model, 'change', this.render);
 			},
 			
 			updateView: function () {
@@ -52,7 +57,6 @@ var Mustache = require('mustache');
 			render: function(){
 				console.log("ViafLinksView RENDER");
 				
-				// var renderData = {"viaf-links" : JSON.parse(JSON.stringify(this.collection)};
 				var renderData = {
                         title: 'VIAF',
                         subtitle: 'Autorités en tous genres',
@@ -60,6 +64,7 @@ var Mustache = require('mustache');
 						links: JSON.parse(JSON.stringify(this.collection))
 				};
 				console.log(renderData);
+				
 				var renderMarkup = Mustache.render(this.template, renderData);
 				console.log("Ready to update DOM.");
 				
@@ -69,14 +74,20 @@ var Mustache = require('mustache');
 			}
 		});
 	
-var links = new ViafLinksCollection();
-links.fetch({
-	   dataType: 'json',
-	   success : function (data) {
-	     console.log(data);
-	   } 
-	 });
-
-var linksView = new ViafLinksView({"collection" : links});
-
-console.log("Application has started...");
+	var links = new ViafLinksCollection();
+	
+	var linksView = new ViafLinksView({
+		el : '#viaf-links-container',
+		collection : links
+	});
+	
+	var viafFormView = new ViafFormView({
+		el : '#viaf-id-form',
+		collection: links
+	});
+	
+	console.log("Application has started...");
+	
+	
+	
+	links.fetch({data: {viafId: 'testtest'}});
