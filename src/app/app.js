@@ -11,6 +11,7 @@ var Mustache = require('mustache');
 	
 	var ViafFormView = require('./views/ViafFormView.js');
 	var ViafLinksView = require('./views/ViafLinksView.js');
+	var WikidataPersonView = require('./views/WikidataPersonView.js');
 	
 	
 	// Lancement de l'application
@@ -26,8 +27,18 @@ var Mustache = require('mustache');
 		collection: links
 	});
 	
+	var WikidataPersonModel = require('./models/WikidataPersonModel.js');
+	var wikidataPerson = new WikidataPersonModel();
+
+	
+	var wikidataPersonView = new WikidataPersonView({
+		el : '#wikidata-person-container',
+		model : wikidataPerson
+	});
+	
 	console.log("Application has started...");
 	
 	
 	
 	links.fetch();
+	wikidataPerson.fetch();

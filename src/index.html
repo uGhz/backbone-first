@@ -114,7 +114,7 @@ body {
 
 					<div class="two column row">
 						<div class="column">
-							<div id="wikidataImageContainer">
+							<div id="wikidata-person-container">
 
 								<!-- Placeholder for Wikidata Image -->
 
@@ -224,6 +224,29 @@ body {
 		</table>
 		{{ /links.length }}
 		</div>
+    </script>
+    
+    	<script id="person-card-template" type="mustache/x-tmpl-mustache">
+							<div class="ui card">
+								<div class="content">
+									<img class="left floated mini ui image" src="{{ cardLogoUrl }}">
+									<div class="header">{{ cardTitle }}</div>
+								</div>
+								<div class="image">
+									<img src="{{ imageUrl }}">
+								</div>
+								<div class="content">
+									<a class="header">{{ title }}</a>
+									<div class="meta">
+										<span class="date">{{ subtitle }}</span>
+									</div>
+									<div class="description">{{ description }}</div>
+								</div>
+								<div class="extra content">
+									<a> <i class="user icon"></i> 22 Friends
+									</a>
+								</div>
+							</div>
     </script>
 
 	<!-- Scripts -->
