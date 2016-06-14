@@ -15,9 +15,9 @@ var source = require('vinyl-source-stream');
 var paths = {
 	    dist    : './dist',
 	    scripts : [
-	               './src/app/models/models.js',
-	               './src/app/collections/collections.js',
-	               './src/app/views/views.js',
+	               './src/app/models/*.js',
+	               './src/app/collections/*.js',
+	               './src/app/views/*.js',
 	               './src/app/app.js'
 	    ],
 	    styles  : './src/assets/styles/**/*.css',

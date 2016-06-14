@@ -6,8 +6,8 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 
 	module.exports = Backbone.Collection.extend({
-		// urlRoot: 'http://127.0.0.1:80/biography-enrichment/proxy.php?source=viaf-links&viaf-id=',
-		urlRoot: 'http://172.22.100.140/biography-enrichment/proxy.php?source=viaf-links&viaf-id=',
+		urlRoot: 'http://127.0.0.1:80/biography-enrichment/proxy.php?source=viaf-links&viaf-id=',
+		// urlRoot: 'http://172.22.100.140/biography-enrichment/proxy.php?source=viaf-links&viaf-id=',
 		initialize: function () {
 			this.viafId = '96994048';
 		},

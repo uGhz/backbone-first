@@ -23,11 +23,12 @@ module.exports =  Backbone.View.extend({
 			
 			render: function(){
 				console.log("WikidataPersonView RENDER");
+				console.log("WikidataPersonView RENDER");
 				
 				var renderData = {
 						cardLogoUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg',
 						cardTitle: 'Wikidata',
-						imageUrl: '',
+						imageUrl: this.model.get('illustrationUrl'),
 						title: '',
 						subtitle: '',
 						description: ''
