@@ -28,7 +28,9 @@ var Mustache = require('mustache');
 	});
 	
 	var WikidataPersonModel = require('./models/WikidataPersonModel.js');
-	var wikidataPerson = new WikidataPersonModel();
+	var wikidataPerson = new WikidataPersonModel({
+		id : 'Q294181'
+	});
 
 	
 	var wikidataPersonView = new WikidataPersonView({
@@ -42,3 +44,19 @@ var Mustache = require('mustache');
 	
 	links.fetch();
 	wikidataPerson.fetch();
+  
+	setTimeout(function() {
+		// wikidataPerson.set('id', 'Q33760');
+		wikidataPerson.id = 'Q33760';
+		wikidataPerson.fetch();
+		
+		setTimeout(function() {
+			// wikidataPerson.set('id', 'Q42');
+			wikidataPerson.id = 'Q42';
+			wikidataPerson.fetch();
+		}, 10000);
+	}, 10000);
+	
+	
+
+	

@@ -24,18 +24,17 @@ var Backbone = require('backbone');
 		// urlRoot: 'http://172.22.100.140/biography-enrichment/proxy.php?source=wikidata-entity&wikidata-id=',
 		initialize: function (){
 			console.log("WikidataPersonModel INITIALIZE");
-			// this.wikidataId = 'Q294181';
-			this.wikidataId = 'Q263387';
+			console.log(this.id);
 		},
 		url: function() {
 			console.log("WikidataPersonModel URL");
-			return this.urlRoot + this.wikidataId;
+			return this.urlRoot + this.id;
 		},
 		parse: function(data) {
 
 			console.log("WikidataPersonModel PARSE");
 			console.log(data);
-			console.log(this.wikidataId);
+			console.log(this.id);
 			
         	var result = {
         			denomination: '',
@@ -88,8 +87,8 @@ var Backbone = require('backbone');
 
 	        	if (node.hasOwnProperty("entities")) {
 	        		node = node.entities;
-	        		if (node.hasOwnProperty(this.wikidataId)) {
-	        			node = node[this.wikidataId];
+	        		if (node.hasOwnProperty(this.id)) {
+	        			node = node[this.id];
 	        			if (node.hasOwnProperty("labels")) {
 	        				node = node.labels;
 	        				if (Object.keys(node).length > 0) {
@@ -118,8 +117,8 @@ var Backbone = require('backbone');
 
 	        	if (node.hasOwnProperty("entities")) {
 	        		node = node.entities;
-	        		if (node.hasOwnProperty(this.wikidataId)) {
-	        			node = node[this.wikidataId];
+	        		if (node.hasOwnProperty(this.id)) {
+	        			node = node[this.id];
 	        			if (node.hasOwnProperty("descriptions")) {
 	        				node = node.descriptions;
 	        				if (Object.keys(node).length > 0) {
@@ -148,8 +147,8 @@ var Backbone = require('backbone');
 
 	        	if (node.hasOwnProperty("entities")) {
 	        		node = node.entities;
-	        		if (node.hasOwnProperty(this.wikidataId)) {
-	        			node = node[this.wikidataId];
+	        		if (node.hasOwnProperty(this.id)) {
+	        			node = node[this.id];
 	        			if (node.hasOwnProperty("claims")) {
 	        				result = node.claims;
 	        			}
