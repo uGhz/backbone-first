@@ -178,6 +178,8 @@ var Backbone = require('backbone');
 	            					}
 	    							break;
 	    						case "wikibase-entityid":
+	    							// TODO. La récupération des valeurs sous forme d'entité nécessite
+	    							// une requête supplémentaire à l'API Wikidata.
 	            					if (node.hasOwnProperty("value")) {
 	            						result =  node.value;
 	            					}
