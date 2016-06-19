@@ -11,6 +11,7 @@ var Mustache = require('mustache');
 	
 	var ViafFormView = require('./views/ViafFormView.js');
 	var ViafLinksView = require('./views/ViafLinksView.js');
+	var WikimediaCommonsImagesView = require('./views/WikimediaCommonsImagesView.js');
 	var WikidataPersonView = require('./views/WikidataPersonView.js');
 	var WikimediaCommonsImagesCollection = require('./collections/WikimediaCommonsImagesCollection.js');
 	
@@ -40,6 +41,11 @@ var Mustache = require('mustache');
 	
 	var wikimediaImagesCollection = new WikimediaCommonsImagesCollection({
 		
+	});
+	
+	var commonsView = new WikimediaCommonsImagesView({
+		el : '#wikimedia-commons-images-container',
+		collection : wikimediaImagesCollection
 	});
 	
 	console.log("Application has started...");

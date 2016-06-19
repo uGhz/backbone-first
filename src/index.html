@@ -127,6 +127,11 @@ body {
 							</div>
 						</div>
 						<div class="column">
+							<div id="wikimedia-commons-images-container">
+
+								<!-- Placeholder for Wikimedia Commons Images -->
+
+							</div>
 							<div id="biusanteImageContainer">
 
 								<!-- Placeholder for Biusante Image -->
@@ -246,6 +251,21 @@ body {
 									<a> <i class="user icon"></i> 22 Friends
 									</a>
 								</div>
+							</div>
+    </script>
+    
+      <script id="images-cards-template" type="mustache/x-tmpl-mustache">
+							
+							<div class="ui cards">
+							{{ #images.length }}
+								{{ #images }}
+								<div class="card">
+    								<div class="image">
+      									<img src="{{ thumbUrl }}">
+    								</div>
+  								</div>
+								{{ /images }}
+							{{ /images.length }}
 							</div>
     </script>
 
