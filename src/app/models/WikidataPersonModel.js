@@ -60,6 +60,7 @@ var Backbone = require('backbone');
 		        		result.lieuDeces	 	= this.getPropertyValue(node.lieuDecesLabel);
 		        		result.occupation	 	= this.getPropertyValue(node.occupations);
 		        		result.nationalite	 	= this.getPropertyValue(node.nationaliteLabel);
+		        		result.wikimediaCommonsCategory = this.getPropertyValue(node.wikimediaCommonsCategory);
 		        	}
         		
         	    }
