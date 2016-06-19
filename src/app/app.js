@@ -6,16 +6,18 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 var Mustache = require('mustache');
 
-
+	var WikidataPersonModel = require('./models/WikidataPersonModel.js');
+	
 	var ViafLinksCollection =  require('./collections/ViafLinksCollection.js');
+	var WikimediaCommonsImagesCollection = require('./collections/WikimediaCommonsImagesCollection.js');
 	
 	var ViafFormView = require('./views/ViafFormView.js');
 	var ViafLinksView = require('./views/ViafLinksView.js');
 	var WikimediaCommonsImagesView = require('./views/WikimediaCommonsImagesView.js');
 	var WikidataPersonView = require('./views/WikidataPersonView.js');
-	var WikimediaCommonsImagesCollection = require('./collections/WikimediaCommonsImagesCollection.js');
+
 	
-	// Lancement de l'application
+	// Instanciation des composants de l'application
 	var links = new ViafLinksCollection();
 	
 	var linksView = new ViafLinksView({
@@ -28,9 +30,8 @@ var Mustache = require('mustache');
 		collection: links
 	});
 	
-	var WikidataPersonModel = require('./models/WikidataPersonModel.js');
 	var wikidataPerson = new WikidataPersonModel({
-		id : 'Q294181'
+		// id : 'Q294181'
 	});
 
 	
@@ -48,9 +49,7 @@ var Mustache = require('mustache');
 		collection : wikimediaImagesCollection
 	});
 	
-	console.log("Application has started...");
-	
-	
+	// Définition des gestionnaires d'évènements
 	wikidataPerson.on('change', function () {
 		console.log('EVENT TRIGGERED : wikidataPerson on change');
 		// wikimediaImagesCollection.set('currentCategory', this.wikimediaCommonsCategory);
@@ -58,7 +57,10 @@ var Mustache = require('mustache');
 		wikimediaImagesCollection.currentCategory = this.get('wikimediaCommonsCategory');
 		wikimediaImagesCollection.fetch();
 	}, wikidataPerson);
-
+	
+	console.log("Application has started...");
+	
+	// Exécution de l'application
 	links.fetch();
 	wikidataPerson.fetch();
 	
