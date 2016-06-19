@@ -17,7 +17,7 @@ module.exports =  Backbone.View.extend({
 			},
 			
 			updateView: function () {
-			    console.log('sync');
+			    // console.log('sync');
 			    this.render();
 			},
 			
