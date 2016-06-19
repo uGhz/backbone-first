@@ -51,13 +51,17 @@ var Mustache = require('mustache');
 	console.log("Application has started...");
 	
 	
-	
+	wikidataPerson.on('change', function () {
+		console.log('EVENT TRIGGERED : wikidataPerson on change');
+		// wikimediaImagesCollection.set('currentCategory', this.wikimediaCommonsCategory);
+		console.log('this.wikimediaCommonsCategory : ' + this.get('wikimediaCommonsCategory'));
+		wikimediaImagesCollection.currentCategory = this.get('wikimediaCommonsCategory');
+		wikimediaImagesCollection.fetch();
+	}, wikidataPerson);
+
 	links.fetch();
 	wikidataPerson.fetch();
-  
-	wikimediaImagesCollection.fetch();
 	
-	/*
 	setTimeout(function() {
 		// wikidataPerson.set('id', 'Q33760');
 		wikidataPerson.id = 'Q33760';
@@ -69,7 +73,7 @@ var Mustache = require('mustache');
 			wikidataPerson.fetch();
 		}, 10000);
 	}, 10000);
-	*/
+	
 	
 
 	

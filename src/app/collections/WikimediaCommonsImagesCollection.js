@@ -13,7 +13,11 @@ var Backbone = require('backbone');
 			this.currentCategory = 'Douglas Adams';
 		},
 		url: function() {
-			return this.urlRoot + this.currentCategory + '/images';
+			console.log("WikimediaCommonsImagesCollection URL");
+			
+			var urlString = this.urlRoot + this.currentCategory + '/images';
+			console.log("urlString : " + urlString);
+			return urlString;
 		},
 		parse: function(data) {
 			console.log("WikimediaCommonsImagesCollection PARSE");
