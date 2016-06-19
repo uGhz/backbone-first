@@ -1,0 +1,21 @@
+https://commons.wikimedia.org/w/api.php?action=query&generator=categorymembers&gcmtype=file&gcmtitle=Category:Coins_in_the_Walters_Art_Museum&prop=info|imageinfo&gcmlimit=100&iiprop=url&iiurlwidth=120&iiurlheight=120
+
+https://commons.wikimedia.org/w/api.php?
+	action=query&
+	generator=categorymembers&
+	gcmtype=file&
+	gcmtitle=Category:Coins_in_the_Walters_Art_Museum&
+	prop=info|imageinfo&
+	gcmlimit=100&
+	iiprop=url&
+	iiurlwidth=120&
+	iiurlheight=120
+
+https://en.wikipedia.org/w/api.php?action=query&titles=Douglas_Adams&prop=pageimages&format=json&pithumbsize=100
+	
+https://en.wikipedia.org/w/api.php?
+	action=query&
+	titles=Douglas_Adams&
+	prop=pageimages&
+	format=json&
+	pithumbsize=100

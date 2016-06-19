@@ -1,0 +1,59 @@
+{
+	"batchcomplete": "",
+	"continue": {
+		"cmcontinue": "file|444f55474c4153204144414d532053414e204652414e434953434f2043524f505045442e4a5047|6634358",
+		"continue": "-||"
+	},
+	"query": {
+		"categorymembers": [{
+			"pageid": 17022124,
+			"ns": 6,
+			"title": "File:Atheist campaign tube2.jpg"
+		},
+		{
+			"pageid": 1835017,
+			"ns": 6,
+			"title": "File:Douglas Adams (ApacheCon) (2).jpg"
+		},
+		{
+			"pageid": 1835023,
+			"ns": 6,
+			"title": "File:Douglas Adams (ApacheCon) (3).jpg"
+		},
+		{
+			"pageid": 1576800,
+			"ns": 6,
+			"title": "File:Douglas Adams (ApacheCon) portrait.jpg"
+		},
+		{
+			"pageid": 574781,
+			"ns": 6,
+			"title": "File:Douglas Adams (ApacheCon).jpg"
+		},
+		{
+			"pageid": 2125661,
+			"ns": 6,
+			"title": "File:Douglas adams cropped.jpg"
+		},
+		{
+			"pageid": 19705716,
+			"ns": 6,
+			"title": "File:Douglas adams portrait (cropped 2).jpg"
+		},
+		{
+			"pageid": 10031710,
+			"ns": 6,
+			"title": "File:Douglas adams portrait cropped.jpg"
+		},
+		{
+			"pageid": 6661797,
+			"ns": 6,
+			"title": "File:Douglas adams portrait.jpg"
+		},
+		{
+			"pageid": 6634324,
+			"ns": 6,
+			"title": "File:Douglas Adams San Francisco 2.jpg"
+		}]
+	}
+}

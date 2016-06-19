@@ -12,7 +12,7 @@ var Mustache = require('mustache');
 	var ViafFormView = require('./views/ViafFormView.js');
 	var ViafLinksView = require('./views/ViafLinksView.js');
 	var WikidataPersonView = require('./views/WikidataPersonView.js');
-	
+	var WikimediaCommonsImagesCollection = require('./collections/WikimediaCommonsImagesCollection.js');
 	
 	// Lancement de l'application
 	var links = new ViafLinksCollection();
@@ -38,6 +38,10 @@ var Mustache = require('mustache');
 		model : wikidataPerson
 	});
 	
+	var wikimediaImagesCollection = new WikimediaCommonsImagesCollection({
+		
+	});
+	
 	console.log("Application has started...");
 	
 	
@@ -45,6 +49,9 @@ var Mustache = require('mustache');
 	links.fetch();
 	wikidataPerson.fetch();
   
+	wikimediaImagesCollection.fetch();
+	
+	/*
 	setTimeout(function() {
 		// wikidataPerson.set('id', 'Q33760');
 		wikidataPerson.id = 'Q33760';
@@ -56,7 +63,7 @@ var Mustache = require('mustache');
 			wikidataPerson.fetch();
 		}, 10000);
 	}, 10000);
-	
+	*/
 	
 
 	
