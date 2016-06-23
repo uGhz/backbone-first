@@ -40,9 +40,10 @@ var Mustache = require('mustache');
 		model : wikidataPerson
 	});
 	
-	var wikimediaImagesCollection = new WikimediaCommonsImagesCollection({
-		
-	});
+	var wikimediaImagesCollection = new WikimediaCommonsImagesCollection(
+		[],
+		{category: 'Douglas Adams'}
+	);
 	
 	var commonsView = new WikimediaCommonsImagesView({
 		el : '#wikimedia-commons-images-container',

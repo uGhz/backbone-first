@@ -9,8 +9,8 @@ var Backbone = require('backbone');
 		
 		urlRoot: 'http://127.0.0.1:80/api-draft/public/wikimedia-commons/categories/',
 		
-		initialize: function () {
-			this.currentCategory = 'Douglas Adams';
+		initialize: function (models, options) {
+			this.currentCategory = options.category;
 		},
 		url: function() {
 			console.log("WikimediaCommonsImagesCollection URL");
