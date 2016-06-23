@@ -6,13 +6,13 @@ var _ = require('underscore');
 var Backbone = require('backbone');
 
 	module.exports = Backbone.Collection.extend({
-		urlRoot: 'http://127.0.0.1:80/biography-enrichment/proxy.php?source=viaf-links&viaf-id=',
-		// urlRoot: 'http://172.22.100.140/biography-enrichment/proxy.php?source=viaf-links&viaf-id=',
+		urlRoot: 'http://127.0.0.1:80/api-draft/public/viaf/authority/',
+
 		initialize: function () {
 			this.viafId = '96994048';
 		},
 		url: function() {
-			return this.urlRoot + this.viafId;
+			return this.urlRoot + this.viafId + '/links';
 		},
 		parse: function(data) {
 			var result = [];
