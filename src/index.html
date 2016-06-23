@@ -245,7 +245,40 @@ body {
 									<div class="meta">
 										<span class="date">{{ subtitle }}</span>
 									</div>
-									<div class="description">{{ description }}</div>
+									<div class="description">
+										<div class="ui divided list">
+											{{ #mentionNaissance }}
+												<div class="item">
+													<div class="content">
+														<div class="header">Naissance</div>
+														<div class="description">{{ . }}</div>
+													</div>
+												</div>
+											{{ /mentionNaissance }}
+											{{ #mentionDeces }}
+												<div class="item">
+													<div class="content">
+														<div class="header">Décès</div>
+														<div class="description">{{ . }}</div>
+													</div>
+												</div>
+											{{ /mentionDeces }}
+											{{ #occupations.length }}
+												<div class="item">
+													<div class="content">
+														<div class="header">Activités</div>
+														<div class="description">
+															<div class="ui horizontal bulleted list">
+																{{ #occupations }}
+																<div class="item">{{ . }}</div>
+																{{ /occupations }}
+															</div>
+														</div>
+													</div>
+												</div>
+											{{ /occupations.length }}
+										</div>
+									</div>
 								</div>
 								<div class="extra content">
 									<a> <i class="user icon"></i> 22 Friends

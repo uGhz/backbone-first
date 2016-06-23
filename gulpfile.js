@@ -4,6 +4,8 @@ var less = require('gulp-less');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 var del = require('del');
 var browserSync = require('browser-sync').create();
 // var reload = browserSync.reload;
@@ -47,6 +49,8 @@ gulp.task('clean:html', function (cb) {
 gulp.task('browserify', function() {
     return browserify('./src/app/app.js').bundle()
         .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(gulp.dest('./dist'));
 });
 
