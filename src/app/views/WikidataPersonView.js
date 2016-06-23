@@ -24,13 +24,34 @@ module.exports =  Backbone.View.extend({
 			render: function(){
 				console.log("WikidataPersonView RENDER");
 				
+				var mentionNaissance = '';
+				var tempDate = this.model.get('dateNaissance');
+				if (tempDate) {
+					mentionNaissance = tempDate.toLocaleDateString();
+					if (this.model.get('lieuNaissance')) {
+						mentionNaissance += ', à ' + this.model.get('lieuNaissance');
+					}
+				}
+				
+				var mentionDeces = '';
+				tempDate = this.model.get('dateDeces');
+				if (tempDate) {
+					mentionDeces = tempDate.toLocaleDateString();
+					if (this.model.get('lieuDeces')) {
+						mentionDeces += ', à ' + this.model.get('lieuDeces');
+					}
+				}
+				
 				var renderData = {
 						cardLogoUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg',
 						cardTitle: 'Wikidata',
 						imageUrl: this.model.get('illustrationUrl'),
 						title: this.model.get('denomination'),
 						subtitle: this.model.get('description'),
-						description: ''
+						description: '',
+						mentionNaissance : mentionNaissance,
+						mentionDeces : mentionDeces,
+						occupations: this.model.get('occupations')
 				};
 				console.log(renderData);
 				

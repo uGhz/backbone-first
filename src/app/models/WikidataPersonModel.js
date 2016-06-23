@@ -31,7 +31,7 @@ var Backbone = require('backbone');
         			dateDeces: null,
         			lieuNaissance: null,
         			lieuDeces: null,
-        			occupation: null,
+        			occupations: null,
         			nationalite: null,
         			wikimediaCommonsCategory: null
         			
@@ -58,7 +58,7 @@ var Backbone = require('backbone');
 		        		result.dateDeces 		= this.getPropertyValue(node.dateDeces);
 		        		result.lieuNaissance 	= this.getPropertyValue(node.lieuNaissanceLabel);
 		        		result.lieuDeces	 	= this.getPropertyValue(node.lieuDecesLabel);
-		        		result.occupation	 	= this.getPropertyValue(node.occupations);
+		        		result.occupations	 	= this.getPropertyValue(node.occupations);
 		        		result.nationalite	 	= this.getPropertyValue(node.nationaliteLabel);
 		        		result.wikimediaCommonsCategory = this.getPropertyValue(node.wikimediaCommonsCategory);
 		        	}
